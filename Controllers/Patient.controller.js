@@ -74,6 +74,9 @@ const getPatientById = async (req, res) => {
 
         // Send a success response with the patient data
         res.status(200).json({patient});
+        console.log("Fetching patient by ID:", patientId);
+        console.log("DB result:", patient);
+
     } catch (error) {
         // Handle errors and send an error response
         console.error(error);

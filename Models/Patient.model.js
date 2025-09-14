@@ -1,3 +1,5 @@
+// models/patient.js
+
 const mongoose = require('mongoose');
 
 const patientSchema = mongoose.Schema({
@@ -43,7 +45,7 @@ const patientSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Appointments',
     }],
-}, { timestamps: true });
+});
 
 const PatientModel = mongoose.model('Patients', patientSchema);
 

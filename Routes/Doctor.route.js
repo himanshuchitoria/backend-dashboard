@@ -7,7 +7,7 @@ const {
   getAllDoctors,
   updateAppointment,
   findDoctor
-} = require("../Controllers/Doctor.Controller");
+} = require("../Controllers/Doctor.controller");
 const DoctorRouter = express.Router();
 const Auth = require("../Middlewares/JWT.authentication");
 const { DoctorAuth } = require("../Middlewares/RoleBased.authentication");

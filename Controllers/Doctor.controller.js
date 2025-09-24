@@ -224,12 +224,14 @@ const deleteBlog = async (req, res) => {
             return res.status(404).json({ message: 'Doctor not found' });
         }
 
+        // Use .id(blogId) to get the subdocument
         const blog = doctor.blogs.id(blogId);
         if (!blog) {
             return res.status(404).json({ message: 'Blog not found' });
         }
 
-        blog.remove();
+        // Remove the subdocument
+        blog.deleteOne(); // or blog.remove(), both work in Mongoose 6+
         await doctor.save();
 
         res.status(200).json({ message: "Blog deleted successfully" });
@@ -238,6 +240,7 @@ const deleteBlog = async (req, res) => {
         res.status(500).json({ message: 'Internal server error' });
     }
 };
+
 
 // Get all blogs of a doctor
 const getBlogs = async (req, res) => {
